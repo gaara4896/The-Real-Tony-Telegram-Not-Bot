@@ -1,7 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 const request = require('request')
 const language = require('@google-cloud/language');
-/*var http = require("http");*/
+var http = require("http");
 
 const languageClient = new language.LanguageServiceClient(/*{
   projectId: process.env.GOOGLE_PROJECT_ID,
@@ -57,7 +57,7 @@ bot.on('message', (msg) => {
 
 });
 
-/*http.createServer(function (request, response) {
+http.createServer(function (request, response) {
 
    // Send the HTTP header 
    // HTTP Status: 200 : OK
@@ -66,4 +66,4 @@ bot.on('message', (msg) => {
    
    // Send the response body as "Hello World"
    response.end('Hello World\n');
-}).listen(process.env.PORT || 5000);*/
+}).listen(process.env.PORT || 5000);
