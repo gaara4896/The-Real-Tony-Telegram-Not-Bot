@@ -2,7 +2,13 @@ const TelegramBot = require('node-telegram-bot-api');
 const request = require('request')
 const language = require('@google-cloud/language');
 
-const languageClient = new language.LanguageServiceClient();
+const languageClient = new language.LanguageServiceClient({
+  projectId: process.env.GOOGLE_PROJECT_ID,
+  credentials: {
+    private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+    client_email: process.env.GOOGLE_CLIENT_EMAIL
+  }
+});
 
 // replace the value below with the Telegram token you receive from @BotFather
 const token = process.env.TELEGRAM_BOT_TOKEN;
