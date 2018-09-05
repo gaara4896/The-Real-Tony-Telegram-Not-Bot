@@ -1,0 +1,28 @@
+{
+  "name": "the-real-tony-telegram-not-bot",
+  "version": "1.0.0",
+  "engines": {
+    "node": "10.9.0",
+    "npm": "6.4.1"
+  },
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaara4896/The-Real-Tony-Telegram-Not-Bot.git"
+  },
+  "author": "Tony",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gaara4896/The-Real-Tony-Telegram-Not-Bot/issues"
+  },
+  "homepage": "https://github.com/gaara4896/The-Real-Tony-Telegram-Not-Bot#readme",
+  "dependencies": {
+    "@google-cloud/language": "^1.2.0",
+    "node-telegram-bot-api": "^0.30.0",
+    "request": "^2.88.0"
+  }
+}
