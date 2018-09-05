@@ -25,7 +25,11 @@ bot.on('message', (msg) => {
     if(msg.new_chat_member !== undefined){
       bot.sendMessage(chatId, `@${msg.new_chat_member.username} Welcome to Sunway Tech C̶u̶l̶t̶ Club!!!`)
     }
-  }
+  } else if(msg.chat.title === "STC Committee"){
+    if(msg.new_chat_member !== undefined){
+      bot.sendMessage(chatId, `@${msg.new_chat_member.username} Welcome to STC Committee!!!`)
+    }
+  } 
 
   if(msg.text !== undefined){
     message = msg.text.toString().toLowerCase()
