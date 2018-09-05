@@ -1,15 +1,15 @@
 const TelegramBot = require('node-telegram-bot-api');
 const request = require('request')
 const language = require('@google-cloud/language');
-var http = require("http");
+/*var http = require("http");*/
 
-const languageClient = new language.LanguageServiceClient({
+const languageClient = new language.LanguageServiceClient(/*{
   projectId: process.env.GOOGLE_PROJECT_ID,
   credentials: {
     private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
     client_email: process.env.GOOGLE_CLIENT_EMAIL
   }
-});
+}*/);
 
 // replace the value below with the Telegram token you receive from @BotFather
 const token = process.env.TELEGRAM_BOT_TOKEN;
@@ -38,15 +38,15 @@ bot.on('message', (msg) => {
       bot.sendMessage(chatId, `@${msg.from.username === undefined ? msg.from.first_name : msg.from.username} Big Brother is watching you!`)
     } else if(message.includes('monika') || message.includes('doki') || message.includes('yuri') || message.includes('sayori') || message.includes('natsuki')){
       bot.sendMessage(chatId, `${msg.from.first_name}${msg.from.last_name === undefined ? '' : '_' + msg.from.last_name.replace(' ', '_')}.chr deleted successfully.`)
-    } else if(message.includes('happy') || message.includes('birthday')) {
+    } else if(message.includes('happy') && message.includes('birthday')) {
       bot.sendMessage(chatId, `Thanks @${msg.from.username === undefined ? msg.from.first_name : msg.from.username}!`)
-    }else {
+    } else {
       languageClient
-        .analyzeSentiment({document: {content: message, type: 'PLAIN_TEXT', language: 'EN'}})
+        .analyzeSentiment({document: {content: message, type: 'PLAIN_TEXT'}})
         .then(results => {
           const sentiment = results[0].documentSentiment;
           if(sentiment.score < -0.5){
-            bot.sendMessage(chatId, `@${msg.from.username === undefined ? msg.from.first_name : msg.from.username} This is so sad! Alexa, can we play Despacito ${Math.floor((Math.random() * 1000) + 1)}`)
+            bot.sendMessage(chatId, `@${msg.from.username === undefined ? msg.from.first_name : msg.from.username} This is so sad! Alexa, can we play Despacito ${Math.floor((Math.random() * 1000) + 1)}?`)
           }
         })
         .catch(err => {
@@ -57,7 +57,7 @@ bot.on('message', (msg) => {
 
 });
 
-http.createServer(function (request, response) {
+/*http.createServer(function (request, response) {
 
    // Send the HTTP header 
    // HTTP Status: 200 : OK
@@ -66,4 +66,4 @@ http.createServer(function (request, response) {
    
    // Send the response body as "Hello World"
    response.end('Hello World\n');
-}).listen(process.env.PORT || 5000);
+}).listen(process.env.PORT || 5000);*/
