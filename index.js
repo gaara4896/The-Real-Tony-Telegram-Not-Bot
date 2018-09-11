@@ -45,8 +45,8 @@ bot.on('message', (msg) => {
         .analyzeSentiment({document: {content: message, type: 'PLAIN_TEXT'}})
         .then(results => {
           const sentiment = results[0].documentSentiment;
-          if(sentiment.score < -0.5){
-            bot.sendMessage(chatId, `@${msg.from.username === undefined ? msg.from.first_name : msg.from.username} This is so sad! Alexa, can we play Despacito ${Math.floor((Math.random() * 1000) + 1)}?`)
+          if(sentiment.score < -0.8){
+            bot.sendMessage(chatId, `@${msg.from.username === undefined ? msg.from.first_name : msg.from.username} We had detected the extremely depressed message of yours. For your psychological wealth being, we advice you to seek for counselling. Cheers!`)
           }
         })
         .catch(err => {
