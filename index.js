@@ -41,17 +41,17 @@ bot.on('message', (msg) => {
     } else if(message.includes('happy') && message.includes('birthday')) {
       bot.sendMessage(chatId, `Thanks @${msg.from.username === undefined ? msg.from.first_name : msg.from.username}!`)
     } else {
-      languageClient
-        .analyzeSentiment({document: {content: message, type: 'PLAIN_TEXT'}})
-        .then(results => {
-          const sentiment = results[0].documentSentiment;
-          if(sentiment.score < -0.8){
-            bot.sendMessage(chatId, `@${msg.from.username === undefined ? msg.from.first_name : msg.from.username} We had detected the extremely depressed message of yours. For your psychological wealth being, we advice you to seek for counselling. Cheers!`)
-          }
-        })
-        .catch(err => {
-          console.error('ERROR:', err);
-        });
+//       languageClient
+//         .analyzeSentiment({document: {content: message, type: 'PLAIN_TEXT'}})
+//         .then(results => {
+//           const sentiment = results[0].documentSentiment;
+//           if(sentiment.score < -0.8){
+//             bot.sendMessage(chatId, `@${msg.from.username === undefined ? msg.from.first_name : msg.from.username} We had detected the extremely depressed message of yours. For your psychological wealth being, we advice you to seek for counselling. Cheers!`)
+//           }
+//         })
+//         .catch(err => {
+//           console.error('ERROR:', err);
+//         });
     }
   }
 
