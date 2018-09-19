@@ -37,7 +37,7 @@ bot.on('message', (msg) => {
     if(message.includes('1984')){
       bot.sendMessage(chatId, `@${msg.from.username === undefined ? msg.from.first_name : msg.from.username} Big Brother is watching you!`)
     } else if(message.includes('monika') || message.includes('doki') || message.includes('yuri') || message.includes('sayori') || message.includes('natsuki')){
-      bot.sendMessage(chatId, `${msg.from.first_name.replace(' ', '_')}${msg.from.last_name === undefined ? '' : '_' + msg.from.last_name.replace(' ', '_')}.chr deleted successfully.`)
+      bot.sendMessage(chatId, `${msg.from.first_name.split(' ').join('_')}${msg.from.last_name === undefined ? '' : '_' + msg.from.last_name.split(' ').join('_')}.chr deleted successfully.`)
     } else if(message.includes('happy') && message.includes('birthday')) {
       bot.sendMessage(chatId, `Thanks @${msg.from.username === undefined ? msg.from.first_name : msg.from.username}!`)
     } else {
