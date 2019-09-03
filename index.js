@@ -1,18 +1,18 @@
 const TelegramBot = require('node-telegram-bot-api');
 const request = require('request')
-const language = require('@google-cloud/language');
+//const language = require('@google-cloud/language');
 var http = require("http");
 
-const languageClient = new language.LanguageServiceClient(/*{
+/*const languageClient = new language.LanguageServiceClient({
   projectId: process.env.GOOGLE_PROJECT_ID,
   credentials: {
     private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
     client_email: process.env.GOOGLE_CLIENT_EMAIL
   }
-}*/);
+});*/
 
 // replace the value below with the Telegram token you receive from @BotFather
-const token = process.env.TELEGRAM_BOT_TOKEN;
+const token = "586488728:AAE3HzCAslnDkGZ8Ye0dg_KYNSN4Hyt6GMI";
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(token, {polling: true});
